@@ -38,28 +38,25 @@ def menu():
     print("4- division")
     return leerEntero("  >> Ingrese una opcion:")
 def main():
-    opcion = menu()
-    print("Opcion = ", opcion)
-    if opcion == 0:
-        print("Chau ...")
-    else:
+    opcion = None
+    while opcion != 0:
+        opcion = menu()
+        print("Opcion = ", opcion)
         if opcion == 1:
             print(suma(leerEntero("Num1:"), leerEntero("Num2:")))
-        else:
-            if opcion == 2:
-                print(resta(leerEntero("Num1:"), leerEntero("Num2:")))
+        elif opcion == 2:
+            print(resta(leerEntero("Num1:"), leerEntero("Num2:")))
+        elif opcion == 3:
+            print(multiplicacion(leerEntero("Num1:"), leerEntero("Num2:")))
+        elif opcion == 4:
+            num1 = leerEntero("Num1:")
+            num2 = validaCero(leerEntero("Num2:"))
+            if (num2 != 0):
+                print(division(num1, num2))
             else:
-                if opcion == 3:
-                    print(multiplicacion(leerEntero("Num1:"), leerEntero("Num2:")))
-                else:
-                    if opcion == 4:
-                        num1 = leerEntero("Num1:")
-                        num2 = validaCero(leerEntero("Num2:"))
-                        if (num2 != 0):
-                            print(division(num1, num2))
-                        else:
-                            print("El divisor sigue siendo cero. Regresando al menu.")
-                    else:
-                        print("Opcion inválida")
-
+                print("El divisor sigue siendo cero. Regresando al menu.")
+        elif opcion == 0:
+            print("Chau ...")
+        else:
+            print("Opcion inválida")
 main()
