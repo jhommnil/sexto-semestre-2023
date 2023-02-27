@@ -21,6 +21,17 @@ def validaCero(divisor):
     else:
         return divisor
 
+
+'''def valNull():
+    num1 = leerEntero("Num1:")
+    if num1 is None:
+        print("Error: No se pudo leer un número válido.")
+
+    num2 = leerEntero("Num2:")
+    if num2 is None:
+        print("Error: No se pudo leer un número válido.")
+
+    print("La suma es:", suma(num1, num2))'''
 def leerEntero(mensaje):
     contador = 0
     while contador < 3:
@@ -58,7 +69,7 @@ def menu():
                 case 0:
                     print("Sali!!!! rata Gaaaaaa")
                 case 1:
-                    print("La suma es:", suma(leerEntero("Num1:"), leerEntero("Num2:")))
+                    print("La suma es:", suma(valNull(leerEntero("Num1:"), leerEntero("Num2:"))))
                 case 2:
                     print("La resta es:", resta(leerEntero("Num1:"), leerEntero("Num2:")))
                 case 3:
@@ -71,7 +82,6 @@ def menu():
                         print("La division es:",division(num1, num2))
                     else:
                         print("El divisor sigue siendo cero. Regresando al menu.")'''
-
 
 def main():
     while True:
