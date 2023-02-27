@@ -1,45 +1,65 @@
 def suma(a, b):
     return a + b
 
+
 def resta(a, b):
     return a - b
+
 
 def multiplicacion(a, b):
     return a * b
 
+
 def division(a, b):
-    if b == 0:
-        print("Error: no se puede dividir por cero.")
-        return
     return a / b
 
-opcion = None
-while opcion!=0:
-    print("""
-    0 Salir
-    1 Sumar
-    2 Restar
-    3 Multiplicar
-    4 Dividir
-    """)
-    opcion = input("Seleccione una opción: ")
-    try:
-        opcion = int(opcion)
-        if opcion == 0:
-            break
-        elif opcion > 4 or opcion < 0:
-            print("Opción inválida. Intente de nuevo.")
-            continue
+
+def validaCero(divisor):
+    if (divisor == 0):
+        print("Error: El divisor no puede ser cero.")
+        return leerEntero("  Nuevo divisor (0 para salir):")
+    else:
+        return divisor
+
+def leerEntero(mensaje):
+    contador = 0
+    while contador < 3:
+        try:
+            return int(input(mensaje))
+        except:
+            print(": Entero no válido..")
+            contador = contador + 1
+
+def menu():
+    print("0- Salir")
+    print("1- suma")
+    print("2- resta")
+    print("3- multiplicacion")
+    print("4- division")
+    return leerEntero("  >> Ingrese una opcion:")
+def main():
+    opcion = menu()
+    print("Opcion = ", opcion)
+    if opcion == 0:
+        print("Chau ...")
+    else:
+        if opcion == 1:
+            print(suma(leerEntero("Num1:"), leerEntero("Num2:")))
         else:
-            n1 = float(input("Ingrese el primer número: "))
-            n2 = float(input("Ingrese el segundo número: "))
-            if opcion == 1:
-                print("El resultado es:", suma(n1, n2))
-            elif opcion == 2:
-                print("El resultado es:", resta(n1, n2))
-            elif opcion == 3:
-                print("El resultado es:", multiplicacion(n1, n2))
-            elif opcion == 4:
-                print("El resultado es:", division(n1, n2))
-    except ValueError:
-        print("Entrada inválida. Intente de nuevo con un número.")
+            if opcion == 2:
+                print(resta(leerEntero("Num1:"), leerEntero("Num2:")))
+            else:
+                if opcion == 3:
+                    print(multiplicacion(leerEntero("Num1:"), leerEntero("Num2:")))
+                else:
+                    if opcion == 4:
+                        num1 = leerEntero("Num1:")
+                        num2 = validaCero(leerEntero("Num2:"))
+                        if (num2 != 0):
+                            print(division(num1, num2))
+                        else:
+                            print("El divisor sigue siendo cero. Regresando al menu.")
+                    else:
+                        print("Opcion inválida")
+
+main()
